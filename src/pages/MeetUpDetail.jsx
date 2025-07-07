@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../useFetch";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-const MeetUpDetails = () => {
+const MeetUpDetail = () => {
   const { loading, error, data } = useFetch(
     "https://meet-sync-six.vercel.app/meetups"
   );
@@ -137,4 +137,4 @@ const MeetUpDetails = () => {
     </>
   );
 };
-export default MeetUpDetails;
+export default MeetUpDetail;
