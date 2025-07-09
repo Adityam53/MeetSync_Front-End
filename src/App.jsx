@@ -7,13 +7,23 @@ import Heading from "./components/Heading";
 import useFetch from "../useFetch";
 function App() {
   const [meetUpType, setMeetUpType] = useState("Both");
+  const [search, setSearch] = useState("");
   const { data, loading, error } = useFetch(
     "https://meet-sync-six.vercel.app/meetups"
   );
-  const filteredMeetUps =
-    meetUpType === "Both" || meetUpType === "all"
-      ? data
-      : data.filter((meetup) => meetup.type == meetUpType);
+  const filteredMeetUps = data?.filter((meetup) => {
+    const matchType =
+      meetUpType === "Both" || meetUpType === "all"
+        ? true
+        : meetup.type === meetUpType;
+    const matchSearch =
+      meetup.title.toLowerCase().includes(search.toLowerCase()) ||
+      meetup.tags.some((tag) =>
+        tag.toLowerCase().includes(search.toLowerCase())
+      );
+
+    return matchType && matchSearch;
+  });
 
   const listMeetups =
     filteredMeetUps &&
@@ -50,7 +60,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header setSearch={setSearch} />
       <Heading heading="MeetUp Events" setMeetUpType={setMeetUpType} />
       <main className="d-flex flex-column bg-light min-vh-100">
         <div className="container">
