@@ -65,7 +65,11 @@ function App() {
       <main className="d-flex flex-column bg-light min-vh-100">
         <div className="container">
           {" "}
-          <div className="row">{listMeetups}</div>
+          <div className="row">
+            {loading && <p>Loading meetups...</p>}
+            {error && <p className="text-danger">Error fetching meetups.</p>}
+            {!loading && !error && <div className="row">{listMeetups}</div>}
+          </div>
         </div>
       </main>
       <Footer />
