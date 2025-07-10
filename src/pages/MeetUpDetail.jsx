@@ -11,7 +11,15 @@ const MeetUpDetail = () => {
   const meetUpDetails =
     data && data.find((meetup) => meetup._id == meetUpId.meetUpId);
 
-  console.log(meetUpDetails);
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString("en-IN", options); // e.g., June 19, 2025
+  };
+
+  const formatTime = (timeStr) => {
+    return timeStr.replace(/:\d{2} /, " "); // Removes seconds from "06:00:00 PM IST" → "06:00 PM IST"
+  };
 
   return (
     <>
@@ -59,14 +67,14 @@ const MeetUpDetail = () => {
                       <b className="">Time: </b>
                     </div>
                     <div className="col-8 col-md-9 m-0 p-0">
-                      <p className="" style={{ fontSize: "13px" }}>
-                        {meetUpDetails.date}
+                      <p className="">
+                        {formatDate(meetUpDetails.date)}
                         <span> at </span>
-                        {meetUpDetails.startTime}
-                        <span> to </span>
-                        {meetUpDetails.date}
+                        {formatTime(meetUpDetails.startTime)}
+                        <span> to </span> <br />
+                        {formatDate(meetUpDetails.date)}
                         <span> at </span>
-                        {meetUpDetails.endTime}
+                        {formatTime(meetUpDetails.endTime)}
                       </p>
                     </div>
                   </div>
