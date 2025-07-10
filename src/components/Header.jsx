@@ -4,7 +4,7 @@ const Header = ({ setSearch }) => {
     <>
       <header className="p-2 bg-light">
         <div className="container">
-          <div className="row m-0 p-0 align-items-center">
+          <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-2">
             <div className="col-md-2">
               <Link to="/" className="text-dark">
                 <h2 className="" style={{ fontFamily: "'Caveat', cursive" }}>

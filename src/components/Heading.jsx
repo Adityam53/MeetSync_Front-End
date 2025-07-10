@@ -2,9 +2,9 @@ import useFetch from "../../useFetch";
 const Heading = ({ heading, setMeetUpType }) => {
   return (
     <>
-      <main className=" py-4 bg-light">
+      <main className=" pb-4 pt-2 bg-light">
         <div className="container">
-          <div className="row m-0 p-0 align-items-center">
+          <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
             <div className="col-md-10 p-0">
               <h1 className="display-5 fw-bold">{heading}</h1>
             </div>
