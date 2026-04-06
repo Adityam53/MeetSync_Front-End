@@ -9,8 +9,13 @@ function App() {
   const [meetUpType, setMeetUpType] = useState("Both");
   const [search, setSearch] = useState("");
   const { data, loading, error } = useFetch(
-    "https://meet-sync-six.vercel.app/meetups"
+    "https://meet-sync-six.vercel.app/meetups",
   );
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString("en-IN", options); // e.g., June 19, 2025
+  };
   const filteredMeetUps = data?.filter((meetup) => {
     const matchType =
       meetUpType === "Both" || meetUpType === "all"
@@ -19,7 +24,7 @@ function App() {
     const matchSearch =
       meetup.title.toLowerCase().includes(search.toLowerCase()) ||
       meetup.tags.some((tag) =>
-        tag.toLowerCase().includes(search.toLowerCase())
+        tag.toLowerCase().includes(search.toLowerCase()),
       );
 
     return matchType && matchSearch;
@@ -47,7 +52,7 @@ function App() {
             </div>
             <div className="ps-1">
               <span className="fw-light" style={{ fontSize: "13px" }}>
-                {meetup.date} | {meetup.startTime}
+                {formatDate(meetup.date)} | {meetup.startTime}
               </span>
               <p style={{ fontSize: "20px" }} className="fw-bold">
                 {meetup.title}

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 const MeetUpDetail = () => {
   const { loading, error, data } = useFetch(
-    "https://meet-sync-six.vercel.app/meetups"
+    "https://meet-sync-six.vercel.app/meetups",
   );
   const meetUpId = useParams();
   console.log(meetUpId);
@@ -129,14 +129,6 @@ const MeetUpDetail = () => {
                       </div>
                     </div>
                   ))}
-                </div>
-                <div className="text-center">
-                  <p
-                    className="btn btn-danger text-light mt-5"
-                    style={{ paddingLeft: "60px", paddingRight: "60px" }}
-                  >
-                    RSVP
-                  </p>
                 </div>
               </div>
             </div>

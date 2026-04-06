@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 const Header = ({ setSearch }) => {
+  const location = useLocation();
+  const isDetailsPage = location.pathname !== "/";
+
   return (
     <>
       <header className="p-2 bg-light">
@@ -12,21 +16,21 @@ const Header = ({ setSearch }) => {
                 </h2>
               </Link>
             </div>
-            <div className="col-md-10">
-              <input
-                onChange={(e) => setSearch(e.target.value)}
-                type="text"
-                className="float-end form-control-sm"
-                style={{
-                  background: "transparent",
-                  borderColor: "Highlight",
-                  color: "black",
-                }}
-                placeholder="Search by title and tag"
-                name=""
-                id=""
-              />
-            </div>
+            {!isDetailsPage && (
+              <div className="col-md-10">
+                <input
+                  onChange={(e) => setSearch(e.target.value)}
+                  type="text"
+                  className="float-end form-control-sm"
+                  style={{
+                    background: "transparent",
+                    borderColor: "Highlight",
+                    color: "black",
+                  }}
+                  placeholder="Search by title and tag"
+                />
+              </div>
+            )}
           </div>{" "}
           <hr className="mt-4" />
         </div>
