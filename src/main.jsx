@@ -15,5 +15,5 @@ createRoot(document.getElementById("root")).render(
         <Route path="/:meetUpId" element={<MeetUpDetail />}></Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
