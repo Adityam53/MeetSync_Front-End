@@ -8,7 +8,7 @@ Developed using React JS, React Router, HTML, CSS, JavaScript, Node.js, Express.
 
 ## Demo Link
 
-[Live Demo](https://drive.google.com/file/d/19R53XruJe-c5HNdZE-SSZ9Cp9fhJr_kj/view?usp=drive_link)
+[Live Demo](https://meet-sync-front-end-sandy.vercel.app/)
 
 ---
 
@@ -44,6 +44,9 @@ npm run dev
 * CORS
 
 ---
+## Demo Video
+
+Watch a walkthrough (4 minutes) of all major features of this app:[Loom Video](https://drive.google.com/file/d/19R53XruJe-c5HNdZE-SSZ9Cp9fhJr_kj/view?usp=drive_link)
 
 ## Features
 
